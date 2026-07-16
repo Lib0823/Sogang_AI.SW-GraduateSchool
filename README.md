@@ -12,13 +12,23 @@
 
 | 과목 | 상태 |
 |------|------|
-| [Linux OS and Applications](./linux-os-and-applications) | 정리 완료 |
-| [Statistics-Based Data Analysis](./statistics-based-data-analysis) | 정리 완료 |
-| [Generative AI and Python Data Analysis](./generative-ai-and-python-data-analysis) | 정리 완료 |
+| [Linux OS and Applications](./1-1.linux-os-and-applications) | 정리 완료 |
+| [Statistics-Based Data Analysis](./1-1.statistics-based-data-analysis) | 정리 완료 |
+| [Generative AI and Python Data Analysis](./1-1.generative-ai-and-python-data-analysis) | 정리 완료 |
 
 <br/>
 
 > 위 표에 없는 과목은 아직 정리 중이며, 순차적으로 추가될 예정입니다.
+
+<br/>
+
+## 기타 세미나
+
+정규 과목은 아니지만 참고한 외부 세미나/특강 자료입니다.
+
+| 세미나 | 자료 |
+|--------|------|
+| [Ontology-Based Harness Engineering](./seminars/ontology) | PPT (PDF) |
 
 <br/>
 
