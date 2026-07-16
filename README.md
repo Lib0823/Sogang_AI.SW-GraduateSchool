@@ -1,43 +1,65 @@
-# Sogang_AI.SW-GraduateSchool
+# Sogang University AI·SW Graduate School Archive
+
+This repository is my personal archive from the **Graduate School of AI & Software at
+Sogang University**. It collects the lecture slides, practice notebooks, datasets,
+exam submissions, and final-project deliverables from every course I have taken so
+far, organized one directory per course. Original lecture materials (PPT/PDF/code)
+are kept as-is, and each directory ships with a `README.md` that summarizes and
+fact-checks the actual content covered — not just a copy of the syllabus.
 
 <br/>
 
-서강대학교 AI·SW 대학원 재학 중 수강한 강의 내용을 과목별로 정리한
-저장소입니다. 강의 PPT(슬라이드)를 원본 그대로 보관하고, 강의 내용을 요약한
-자료를 함께 정리합니다.
+## Courses
+
+Grouped by track, most recent additions on top of each table.
+
+### Software Engineering / Systems
+
+| Course Code | Subject (Korean) | Course Name (English) | Semester | Materials |
+|-------------|-------------------|------------------------|----------|-----------|
+| GITF315 | Linux운영체제 및 응용 | Linux OS and Applications | 2026 Spring | [Link](./1-1.linux-os-and-applications) |
+
+### Data Analysis / AI
+
+| Course Code | Subject (Korean) | Course Name (English) | Semester | Materials |
+|-------------|-------------------|------------------------|----------|-----------|
+| GITS381 | 통계기반 데이터 분석 | Statistics-Based Data Analysis | 2026 Spring | [Link](./1-1.statistics-based-data-analysis) |
+| GITA403 | 생성형 AI와 파이썬 데이터 분석 | Generative AI and Python Data Analysis | 2026 Spring | [Link](./1-1.generative-ai-and-python-data-analysis) |
+
+Each course directory contains one subdirectory per topic/week (named after the
+actual topic covered, not "Week N"), holding the original slides plus any
+supplementary datasets, scripts, or student reports, along with midterm/final exam
+submissions where applicable.
 
 <br/>
 
-## 과목 목록
+## Seminars & Talks
 
-| 과목 | 상태 |
-|------|------|
-| [Linux OS and Applications](./1-1.linux-os-and-applications) | 정리 완료 |
-| [Statistics-Based Data Analysis](./1-1.statistics-based-data-analysis) | 정리 완료 |
-| [Generative AI and Python Data Analysis](./1-1.generative-ai-and-python-data-analysis) | 정리 완료 |
+Reference material from external seminars and talks I attended, kept separate from
+the graded coursework above.
 
-<br/>
-
-> 위 표에 없는 과목은 아직 정리 중이며, 순차적으로 추가될 예정입니다.
-
-<br/>
-
-## 기타 세미나
-
-정규 과목은 아니지만 참고한 외부 세미나/특강 자료입니다.
-
-| 세미나 | 자료 |
-|--------|------|
+| Seminar | Materials |
+|---------|-----------|
 | [Ontology-Based Harness Engineering](./seminars/ontology) | PPT (PDF) |
 
 <br/>
 
 ## Getting Started
 
-관심 있는 과목 디렉터리로 이동하면 세부 폴더를 확인할 수 있습니다. 각 폴더에는
-강의 PPT(PDF)와, 강의 내용을 정리한 `README.md`가 함께 들어 있습니다.
+Navigate into the course directory you're interested in to browse its topic
+subdirectories. Each one pairs the original lecture slides (PDF) with a `README.md`
+summarizing the key concepts actually covered in that material.
 
 <br/>
 
-> *이 저장소의 자료는 개인 학습 및 복습 목적으로 정리한 것이며, 실제 강의
-> 내용과 표현상 차이가 있을 수 있습니다.*
+## Notes
+
+The courses were taught in Korean, so most original slides and per-topic notes stay
+in Korean too — only this top-level README is in English. Treat it as a personal
+study aid rather than an official record.
+
+<br/>
+
+## License
+
+Personal, educational reference only — not licensed for commercial use.
