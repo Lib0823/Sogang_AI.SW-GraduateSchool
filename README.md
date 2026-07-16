@@ -24,7 +24,7 @@ Grouped by track, most recent additions on top of each table.
 | Course Code | Subject (Korean) | Course Name (English) | Semester | Materials |
 |-------------|-------------------|------------------------|----------|-----------|
 | GITS381 | 통계기반 데이터 분석 | Statistics-Based Data Analysis | 2026 Spring | [Link](./1-1.statistics-based-data-analysis) |
-| GITA403 | 생성형 AI와 파이썬 데이터 분석 | Generative AI and Python Data Analysis | 2026 Spring | [Link](./1-1.generative-ai-and-python-data-analysis) |
+| GITA403 | 생성형AI와 파이썬 데이터분석 | GenerativeAI and Python DataAnalysis | 2026 Spring | [Link](./1-1.generative-ai-and-python-data-analysis) |
 
 Each course directory contains one subdirectory per topic/week (named after the
 actual topic covered, not "Week N"), holding the original slides plus any
