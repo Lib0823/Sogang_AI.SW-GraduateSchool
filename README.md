@@ -17,14 +17,14 @@ Grouped by track, most recent additions on top of each table.
 
 | Course Code | Subject (Korean) | Course Name (English) | Semester | Materials |
 |-------------|-------------------|------------------------|----------|-----------|
-| GITF315 | Linux운영체제 및 응용 | Linux OS and Applications | 2026 Spring | [Link](./1-1.linux-os-and-applications) |
+| GITF315 | Linux운영체제 및 응용 | Linux OS and Applications | 2026 Spring | [Link](./1-1.Linux_OS_and_Applications) |
 
 ### Data Analysis / AI
 
 | Course Code | Subject (Korean) | Course Name (English) | Semester | Materials |
 |-------------|-------------------|------------------------|----------|-----------|
-| GITS381 | 통계기반 데이터 분석 | Statistics-Based Data Analysis | 2026 Spring | [Link](./1-1.statistics-based-data-analysis) |
-| GITA403 | 생성형AI와 파이썬 데이터분석 | GenerativeAI and Python DataAnalysis | 2026 Spring | [Link](./1-1.generative-ai-and-python-data-analysis) |
+| GITS381 | 통계기반 데이터 분석 | Statistics-Based Data Analysis | 2026 Spring | [Link](./1-1.Statistics_Based_Data_Analysis) |
+| GITA403 | 생성형AI와 파이썬 데이터분석 | GenerativeAI and Python DataAnalysis | 2026 Spring | [Link](./1-1.Generative_AI_and_Data_Analysis) |
 
 Each course directory contains one subdirectory per topic/week (named after the
 actual topic covered, not "Week N"), holding the original slides plus any
