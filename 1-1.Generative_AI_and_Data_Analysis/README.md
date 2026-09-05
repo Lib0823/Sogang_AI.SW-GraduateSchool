@@ -37,7 +37,7 @@ Numpy·Pandas·Matplotlib·Seaborn·BeautifulSoup·Scikit-learn을 다룹니다.
 ## 구성
 
 ```
-generative-ai-and-python-data-analysis/
+1-1.Generative_AI_and_Data_Analysis/
 ├── syllabus.pdf
 ├── 01-generative-ai-basics/
 ├── 02-03-numpy-arrays/

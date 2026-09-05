@@ -37,7 +37,7 @@
 ## 구성
 
 ```
-statistics-based-data-analysis/
+1-1.Statistics_Based_Data_Analysis/
 ├── syllabus.pdf
 ├── 01-introduction/
 ├── 02-probability-and-distributions/

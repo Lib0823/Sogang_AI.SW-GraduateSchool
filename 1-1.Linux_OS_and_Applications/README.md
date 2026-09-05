@@ -37,7 +37,7 @@
 ## 구성
 
 ```
-linux-os-and-applications/
+1-1.Linux_OS_and_Applications/
 ├── 01-machine-basics/
 ├── 02-memory-hierarchy-and-caches/
 ├── 03-os-basics-and-process/

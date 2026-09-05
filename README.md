@@ -17,19 +17,24 @@ Grouped by track, most recent additions on top of each table.
 
 | Course Code | Subject (Korean) | Course Name (English) | Semester | Materials |
 |-------------|-------------------|------------------------|----------|-----------|
+| TBD | AI 데이터 시스템 및 인프라 | AI Data System and Infrastructure | 2026 Fall | [Link](./1-2.AI_Data_System_Infra) |
 | GITF315 | Linux운영체제 및 응용 | Linux OS and Applications | 2026 Spring | [Link](./1-1.Linux_OS_and_Applications) |
 
 ### Data Analysis / AI
 
 | Course Code | Subject (Korean) | Course Name (English) | Semester | Materials |
 |-------------|-------------------|------------------------|----------|-----------|
+| TBD | 딥러닝 기초 | Deep Learning Basics | 2026 Fall | [Link](./1-2.Deep_Learning_Basics) |
+| TBD | 인공지능확률통계 | AI Probability and Statistics | 2026 Fall | [Link](./1-2.AI_Probability_Statistics) |
 | GITS381 | 통계기반 데이터 분석 | Statistics-Based Data Analysis | 2026 Spring | [Link](./1-1.Statistics_Based_Data_Analysis) |
 | GITA403 | 생성형AI와 파이썬 데이터분석 | GenerativeAI and Python DataAnalysis | 2026 Spring | [Link](./1-1.Generative_AI_and_Data_Analysis) |
 
 Each course directory contains one subdirectory per topic/week (named after the
 actual topic covered, not "Week N"), holding the original slides plus any
 supplementary datasets, scripts, or student reports, along with midterm/final exam
-submissions where applicable.
+submissions where applicable. Courses from the second semester (`1-2.*`) are still
+in progress and keep their per-topic notes as flat `NN-topic.md` files instead — see
+each course README for which weeks are already written.
 
 <br/>
 
