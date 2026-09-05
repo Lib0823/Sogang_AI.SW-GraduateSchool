@@ -40,7 +40,7 @@ the graded coursework above.
 
 | Seminar | Materials |
 |---------|-----------|
-| [Ontology-Based Harness Engineering](./seminars/ontology) | PPT (PDF) |
+| [Ontology-Based Harness Engineering](./SEMINAR/Ontology) | PPT (PDF) |
 
 <br/>
 
