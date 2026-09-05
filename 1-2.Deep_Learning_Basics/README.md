@@ -2,7 +2,7 @@
 
 <br/>
 
-서강대학교 AI·SW 대학원 **딥러닝 기초** 강의 내용을 정리한 저장소입니다.
+서강대학교 AI·SW 대학원 **딥러닝 기초(GITA385)** 강의 내용을 정리한 저장소입니다.
 담당 교수는 낭종호(`jhnang@sogang.ac.kr`)이며, DNN의 기본 동작 원리에서 출발해
 CNN, RNN/LSTM, Attention, Transformer, Self-supervised Learning, 생성 AI
 (LLM · Stable Diffusion)까지의 구조와 학습 방법·응용을 다룹니다. 각 주차 노트는
@@ -19,6 +19,7 @@ CNN, RNN/LSTM, Attention, Transformer, Self-supervised Learning, 생성 AI
 
 | 항목 | 내용 |
 |------|------|
+| 학수번호 | GITA385 |
 | 학기 | 2026년 2학기 |
 | 학점 | 2학점 |
 | 시간 | 월 18:30~20:00 (AS1003) |
