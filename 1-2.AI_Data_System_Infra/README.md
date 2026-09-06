@@ -44,7 +44,7 @@ AI 데이터 시스템·인프라를 다룹니다. 링크가 걸린 항목은 �
 
 | 주차 | 주제 | 정리 |
 |------|------|------|
-| 01 | [AI 데이터 시스템 및 스토리지 개요](./01-storage-overview-and-hdd.md) | 작성 중 |
+| 01 | [AI 데이터 시스템 및 스토리지 개요](./01-storage-overview-and-hdd.md) | 완료 (HDD 기초 포함) |
 | 02 | 반도체 기반 스토리지 및 차세대 메모리 기술 | 예정 |
 | 03 | 파일 시스템 I: File I/O와 Linux 파일 시스템 | 예정 |
 | 04 | 파일 시스템 II: Crash Consistency와 Journaling | 예정 |

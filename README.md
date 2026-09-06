@@ -45,6 +45,7 @@ the graded coursework above.
 
 | Seminar | Materials |
 |---------|-----------|
+| [Reinforcement Learning: Optimal Decision Making Under Uncertainty](./SEMINAR/Reinforcement_Learning) | PPT (PDF) |
 | [Ontology-Based Harness Engineering](./SEMINAR/Ontology) | PPT (PDF) |
 
 <br/>
