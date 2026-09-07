@@ -43,7 +43,7 @@ CNN, RNN/LSTM, Attention, Transformer, Self-supervised Learning, 생성 AI
 
 | 주차 | 주제 | 정리 |
 |------|------|------|
-| 01 | [인공 지능과 기계 학습 소개](./01-ai-and-machine-learning.md) | 작성 중 |
+| 01 | [인공 지능과 기계 학습 소개](./01-ai-and-machine-learning.md) | 완료 |
 | 02 | Image Classification Pipeline | 예정 |
 | 03 | Loss Function and Optimization | 예정 |
 | 04 | Backpropagation and Neural Networks | 예정 |
