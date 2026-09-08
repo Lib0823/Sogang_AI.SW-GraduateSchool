@@ -44,12 +44,13 @@
 
 ## 목록
 
-링크가 걸린 항목은 정리가 끝난 주차입니다.
+링크가 걸린 항목은 정리가 끝난 주차입니다. 실제 진행 순서는 강의계획서와 달라,
+Sum/Product rule과 베이즈 정리(계획서상 4주차)를 1~2주차에 먼저 다루었습니다.
 
 | 주차 | 주제 | 정리 |
 |------|------|------|
 | 01 | [확률 분포 및 확률공간의 개념, 이산 확률, 조건부 확률](./01-fundamentals-of-probability-and-bayes.md) | 완료 |
-| 02 | Discrete probability models | 예정 |
+| 02 | [Sum rule, product rule, Bayes' theorem, Graphical Model](./02-sum-product-bayes.md) *(계획서: Discrete probability models)* | 완료 |
 | 03 | Continuous probability models | 예정 |
 | 04 | Sum rule, product rule, and Bayes' theorem | 예정 |
 | 05 | Summary statistics & Independence | 예정 |
