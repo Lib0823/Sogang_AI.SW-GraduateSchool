@@ -41,11 +41,14 @@ LLM/KV Cache → Cloud AI Infrastructure로 이어지는 데이터 시스템의 
 
 전반부는 스토리지·파일 시스템·데이터베이스, 후반부는 클라우드 스토리지와
 AI 데이터 시스템·인프라를 다룹니다. 링크가 걸린 항목은 정리가 끝난 주차입니다.
+실제 진행은 강의계획서와 달라, 1주차에 시작한 HDD(Magnetic Disk & HDD Controller
+Architecture) 슬라이드를 2주차에 이어서 마쳤습니다. 반도체 스토리지(계획서상 2주차)는
+3주차 이후로 밀렸습니다.
 
 | 주차 | 주제 | 정리 |
 |------|------|------|
-| 01 | [AI 데이터 시스템 및 스토리지 개요](./01-storage-overview-and-hdd.md) | 완료 (HDD 기초 포함) |
-| 02 | 반도체 기반 스토리지 및 차세대 메모리 기술 | 예정 |
+| 01 | [AI 데이터 시스템 및 스토리지 개요](./01-storage-overview-and-hdd.md) | 완료 (LLM/KV Cache 배경, 메모리 계층, HDD 기초) |
+| 02 | [Magnetic Disk & HDD Controller Architecture](./02-hdd-controller-architecture.md) *(계획서: 반도체 기반 스토리지 및 차세대 메모리 기술)* | 완료 (Seek/Rotation/Transfer, I/O 스케줄링, HAMR/MAMR/SMR, RAID) |
 | 03 | 파일 시스템 I: File I/O와 Linux 파일 시스템 | 예정 |
 | 04 | 파일 시스템 II: Crash Consistency와 Journaling | 예정 |
 | 05 | 파일 시스템 III: 로그 기반 파일 시스템과 SSD 최적화 | 예정 |

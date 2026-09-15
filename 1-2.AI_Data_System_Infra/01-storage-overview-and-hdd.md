@@ -68,9 +68,9 @@ Transformer(auto-regressive) → KV Cache 폭증 → HBM 용량 한계
 - 한 서버(로컬 버스에 붙은 디스크)만으로는, 긴 컨텍스트에서 나오는 토큰의 KV를 **전부 저장할 용량이 부족**하다.
 - → 대용량 디스크를 여러 장 묶은 **리모트/네트워크 스토리지**를 서버에 연결. 다만 네트워크를 타는 순간 지연(latency)이 문제.
 
-### 3-2. NVIDIA CMX (= 강의 중 "CMX/G3.5")
+### 3-2. NVIDIA CMX (G3.5 tier)
 - NVIDIA가 정의한 새로운 KV Cache 전용 스토리지 계층.
-- 원래 이름: **ICMS / ICMSP (Inference Context Memory Storage Platform)** → 이후 **CMX (Context Memory eXtension)** 로 브랜딩.
+- 발표 당시(CES 2026) 이름은 **ICMSP (Inference Context Memory Storage Platform)** → 이후 **CMX Context Memory Storage Platform**으로 명명. BlueField-4 스토리지 프로세서가 관리한다.
 - **G3.5 계층**: pod 단위 **이더넷 연결 플래시 계층**. 아래 계층 구조에서 G3와 G4 사이를 메운다.
 
 | 계층 | 매체 | 지연 | 특징 |
@@ -78,7 +78,7 @@ Transformer(auto-regressive) → KV Cache 폭증 → HBM 용량 한계
 | **G1** | GPU HBM | ns | 가장 빠름, 용량 극소 |
 | **G2** | CPU DRAM | — | warm 블록 |
 | **G3** | 로컬 NVMe SSD | µs | 노드 로컬, 노드 간 공유 불가 |
-| **G3.5** | **CMX (이더넷 플래시, BlueField-4 관리)** | — | **pod 단위 공유 컨텍스트 메모리** |
+| **G3.5** | **CMX (이더넷 플래시, BlueField-4 관리)** | µs~ | **pod 단위 공유 컨텍스트 메모리**, 노드 간 공유 가능 |
 | **G4** | 공유/외부 스토리지 | ms | 용량 무제한급, 너무 느림 |
 
 - 핵심 아이디어: KV 블록을 **온도(hot/warm/cold)** 로 나눠 계층에 배치하고, 필요할 때 GPU 메모리로 **pre-staging**. 재계산(recompute)보다 읽어오는 게 싸다.
@@ -90,7 +90,7 @@ Transformer(auto-regressive) → KV Cache 폭증 → HBM 용량 한계
 
 ---
 
-## 4. 산업/현실 관점 코멘트 (교수님 인사이트)
+## 4. 산업/현실 관점 코멘트
 
 - 메모리·스토리지가 **CPU/GPU만큼 중요한 축**이 될 것이라는 전망. 다만
   - **"기술이 그리로 가느냐"** 와 **"돈이 그리로 가느냐"** 는 다른 문제.
@@ -149,8 +149,8 @@ Seek to right track → Wait for rotation → Transfer data
 
 **② Rotation (회전 지연)**
 - RPM에 의존. 7,200 RPM이 일반적, 15,000 RPM이 하이엔드.
-- 7,200 RPM → 1회전 = 60초/7200 = **8.3 ms**
-- **평균 회전 지연 = 1회전 / 2 = 4.15 ms**
+- 7,200 RPM → 1회전 = 60초/7200 ≈ **8.3 ms**
+- **평균 회전 지연 = 1회전 / 2 ≈ 4.2 ms**
 
 **③ Transfer**
 - 셋 중 가장 빠름. RPM과 섹터 밀도에 의존.
@@ -182,7 +182,7 @@ seek 느림, rotation 느림, transfer 빠름
 | | Cheetah | Barracuda |
 |---|---|---|
 | Sequential | 125 MB/s | 105 MB/s |
-| Random (16KB) | **2.5 MB/s** | **1.2 MB/s** |
+| Random (16KB) | **≈2.5 MB/s** | **≈1.2 MB/s** |
 
 > 시험 포인트: **순차 대비 랜덤이 약 50~90배 느리다.** 이 격차가 파일시스템·DB·LSM-tree가 전부 "순차 쓰기"로 설계되는 이유.
 
@@ -274,49 +274,23 @@ seek 느림, rotation 느림, transfer 빠름
 
 ---
 
-## 6. STT 오류 교정표
+## 6. 진도 위치
 
-| 녹취 표기 | 실제 용어 |
-|---|---|
-| LM 모델 | **LLM** |
-| 오토 리그레시브 | **Auto-regressive (자기회귀)** |
-| 덧 셋 캣 온 | "the cat sat on ..." (예문) |
-| 서머라이즈 | **Summarize** |
-| 리우즈 | **Reuse** |
-| 에이전트 AI | **Agentic AI** |
-| CMX / CNX | **NVIDIA CMX** (Context Memory eXtension, 구 ICMS/ICMSP) |
-| g 3.5 | **G3.5 tier** |
-| 앤드리아 | **NVIDIA (엔비디아)** |
-| 블루 필드 | **BlueField** (NVIDIA DPU) |
-| SM / 디자인 SM | **SRAM / DRAM, SRAM** |
-| DM | **DRAM** |
-| 커패스틱 댄서티 | **Capacity density** |
-| HBM 하이 밴드스 메모리 | **High Bandwidth Memory** |
-| 후다코 / 쿠다 코어 | **CUDA Core** |
-| 1분단 2분단 3분단 | **(die) 1단·2단·3단 적층** |
-| 스핀드 | **스핀들(spindle) / 디스크 암** |
-| 시크 로테이트 트랜스퍼 | **Seek / Rotate(Rotational latency) / Transfer** |
-| AR 시대 | **AI 시대** (문맥상) |
-
----
-
-## 7. 진도 위치 — 어디까지 나갔나
-
-강의 녹음(약 68분) 기준으로 실제로 말로 다룬 범위는 **5-4의 Seek/Rotate/Transfer 설명 초입까지**다.
+1주차에 실제로 다룬 범위는 **5-4의 Seek/Rotate/Transfer 설명 초입까지**다. 5-5 이후는 슬라이드에만 있던 내용으로, [2주차 노트](./02-hdd-controller-architecture.md)에서 이어서 정리했다.
 
 | 범위 | 상태 |
 |---|---|
 | 1~4장 (LLM·KV Cache·메모리 계층·CMX·산업 동향) | 구두 개요 설명, 슬라이드 밖 내용 |
-| 5-1 Basic Interface ~ 5-4 Seek/Rotate/Transfer | **다룸** |
-| 5-5 Workload Performance (Cheetah/Barracuda 계산) | 슬라이드에만 있음 — 다음 시간 예상 |
-| 5-6 Track Skew / Zones / Cache | 슬라이드에만 있음 |
-| 5-7 I/O Scheduler (FCFS, SPTF, SSTF, SCAN, C-SCAN) | 슬라이드에만 있음 |
-| 5-8 Storage Trends (Helium, HAMR/MAMR/SMR) | 슬라이드에만 있음 |
-| 5-9 RAID / All-Flash Array | 슬라이드에만 있음 |
+| 5-1 Basic Interface ~ 5-4 Seek/Rotate/Transfer | **1주차에서 다룸** |
+| 5-5 Workload Performance (Cheetah/Barracuda 계산) | 2주차 |
+| 5-6 Track Skew / Zones / Cache | 2주차 |
+| 5-7 I/O Scheduler (FCFS, SPTF, SSTF, SCAN, C-SCAN) | 2주차 |
+| 5-8 Storage Trends (Helium, HAMR/MAMR/SMR) | 2주차 |
+| 5-9 RAID / All-Flash Array | 2주차 |
 
 ---
 
-## 8. 체크리스트
+## 7. 체크리스트
 
 **개요 파트**
 - [ ] KV Cache가 무엇이고 왜 seq_len에 비례해 커지는지 설명할 수 있다
@@ -348,7 +322,7 @@ seek 느림, rotation 느림, transfer 빠름
 
 ---
 
-## 9. 강의계획서 대조
+## 8. 강의계획서 대조
 
 - 1주차 계획: **"AI 데이터 시스템 및 스토리지 개요"** → 계획대로 진행
 - 2주차 예정: **"반도체 기반 스토리지 및 차세대 메모리 기술"** → 오늘 개요 파트(HBM/DRAM/SRAM)에서 이미 선행
