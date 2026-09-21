@@ -39,14 +39,15 @@ CNN, RNN/LSTM, Attention, Transformer, Self-supervised Learning, 생성 AI
 
 ## 목록
 
-링크가 걸린 항목은 정리가 끝난 주차입니다. 2주차 후반부에 3주차 주제(Loss Function &
-Optimization)의 도입부까지 진행했습니다.
+링크가 걸린 항목은 정리가 끝난 주차입니다. 실제 진행은 강의계획서의 주차 구분과 조금씩
+어긋나서, 2주차 후반부에 3주차 주제(Loss Function & Optimization)의 도입부를,
+3주차 후반부에 4주차 주제(Backpropagation)의 도입부를 먼저 다뤘습니다.
 
 | 주차 | 주제 | 정리 |
 |------|------|------|
 | 01 | [인공 지능과 기계 학습 소개](./01-ai-and-machine-learning.md) | 완료 |
 | 02 | [Image Classification Pipeline](./02-image-classification.md) | 완료 (K-NN, Linear Classifier, 중간고사 기출 포함) |
-| 03 | Loss Function and Optimization | 예정 |
+| 03 | [Loss Function and Optimization](./03-loss-function-and-optimization.md) | 완료 (SVM/Softmax Loss, Regularization, Gradient Descent, Backpropagation 도입부 포함) |
 | 04 | Backpropagation and Neural Networks | 예정 |
 | 05 | Training Neural Network 1 | 예정 |
 | 06 | Training Neural Network 2 | 예정 |
