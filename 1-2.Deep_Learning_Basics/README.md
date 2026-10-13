@@ -43,7 +43,9 @@ CNN, RNN/LSTM, Attention, Transformer, Self-supervised Learning, 생성 AI
 어긋나서, 2주차 후반부에 3주차 주제(Loss Function & Optimization)의 도입부를,
 3주차 후반부에 4주차 주제(Backpropagation)의 도입부를 먼저 다뤘습니다. 4주차에는
 Lecture 4 전체와 5주차 주제인 Lecture 5(Training Neural Networks, Part 1) 전체를
-이어서 다뤘기 때문에 두 주차 내용이 한 노트에 정리되어 있습니다.
+이어서 다뤘기 때문에 두 주차 내용이 한 노트에 정리되어 있습니다. 6주차도 마찬가지로
+Lecture 6(Training Neural Networks, Part 2) 후반부와 7주차 주제인 Lecture 7
+(Self-supervised Learning) 전체를 함께 다뤘습니다.
 
 | 주차 | 주제 | 정리 |
 |------|------|------|
@@ -52,8 +54,8 @@ Lecture 4 전체와 5주차 주제인 Lecture 5(Training Neural Networks, Part 1
 | 03 | [Loss Function and Optimization](./03-loss-function-and-optimization.md) | 완료 (SVM/Softmax Loss, Regularization, Gradient Descent, Backpropagation 도입부 포함) |
 | 04 | [Backpropagation and Neural Networks](./04-backpropagation-and-training.md) | 완료 (Computational Graph, 2-layer NN 구현, Activation Function, Weight Initialization, Batch Normalization, Hyperparameter 탐색 포함) |
 | 05 | Training Neural Network 1 | [04 노트](./04-backpropagation-and-training.md) Part B에 포함 |
-| 06 | Training Neural Network 2 | 예정 |
-| 07 | Self-Supervised Learning (자기 지도 학습) | 예정 |
+| 06 | [Fancier Optimization, Regularization, Transfer Learning](./06-optimization-and-self-supervised-learning.md) | 완료 (SGD의 문제점, Momentum/Nesterov/AdaGrad/RMSProp/Adam, Dropout, Data Augmentation, Transfer Learning 포함) |
+| 07 | Self-Supervised Learning (자기 지도 학습) | [06 노트](./06-optimization-and-self-supervised-learning.md) 후반부에 포함 (Pretext Task, Contrastive Learning, NLP SSL) |
 | 08 | 《중간 시험》 | — |
 | 09 | CNN (Convolutional Neural Network) 개념 및 구조 | 예정 |
 | 10 | RNN & LSTM, Attention & Transformer | 예정 |
