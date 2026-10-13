@@ -55,7 +55,7 @@ Sum/Product rule과 베이즈 정리(계획서상 4주차)를 1~3주차에 걸�
 | 03 | [Bayes' Theorem, Bayes Table, Distributions (Think Bayes Ch.2–3)](./03-bayes-theorem-and-distribution.md) *(계획서: Continuous probability models)* | 완료 |
 | 04 | [PMF, Bayesian Update, Binomial Distribution (Think Bayes Ch.3–4)](./04-bayes-update.md) *(계획서: Sum rule, product rule, and Bayes' theorem)* | 완료 |
 | 05 | [Binomial, MLE, Beta Prior, Posterior, 예측](./05-binomial-mle-beta.md) *(계획서: Summary statistics & Independence)* | 완료 |
-| 06 | Gaussian distribution model | 예정 |
+| 06 | [Likelihood, MLE, MAP, Estimating Counts, Credible Interval, Odds (Think Bayes Ch.5–6)](./06-mle-map-estimating-counts.md) *(계획서: Gaussian distribution model)* | 완료 |
 | 07 | Joint Gaussian distribution model | 예정 |
 | 08 | 《중간 시험》 | — |
 | 09 | Transformation of random variables | 예정 |
