@@ -65,3 +65,12 @@ Lecture 6(Training Neural Networks, Part 2) 후반부와 7주차 주제인 Lectu
 | 14 | Image 생성 AI (GAN/Diffusion 기반 모델) - 2 | 예정 |
 | 15 | Deep Neural Network 경량화 | 예정 |
 | 16 | 《기말 시험》 | — |
+
+<br/>
+
+### 복습 · 시험 대비
+
+| 구분 | 문서 | 비고 |
+|------|------|------|
+| 시험 대비 | [중간시험 완성 가이드](./midterm-study-guide.md) | 배운 범위(1~7주차)만. 블록 1~9 약 4시간. 기출(배운 범위) + 6~7주차 예상 문제, 접이식 모범 답안 |
+| 시험 대비 | [중간시험 A4 정리지](./midterm-cheat-sheet.md) | 시험장 지참용 손글씨 2면 분량. 공식·숫자·서술형 답안 뼈대 |
