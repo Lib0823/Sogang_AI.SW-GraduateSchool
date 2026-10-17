@@ -43,7 +43,7 @@ LLM/KV Cache → Cloud AI Infrastructure로 이어지는 데이터 시스템의 
 AI 데이터 시스템·인프라를 다룹니다. 링크가 걸린 항목은 정리가 끝난 주차입니다.
 실제 진행은 강의계획서와 달라, 1주차에 시작한 HDD(Magnetic Disk & HDD Controller
 Architecture) 슬라이드를 2주차에 이어서 마치고, 3주차에 RAID로 넘어갔습니다.
-반도체 기반 스토리지(계획서상 2주차)는 4~5주차에 걸쳐 다루었고, 파일 시스템은
+반도체 기반 스토리지(계획서상 2주차)는 4~5주차에 걸쳐 다루었고, 6주차에는 SSD 펌웨어(FTL)를 다루었습니다. 파일 시스템은
 아직 시작하지 않았습니다.
 
 | 주차 | 주제 | 정리 |
@@ -53,7 +53,7 @@ Architecture) 슬라이드를 2주차에 이어서 마치고, 3주차에 RAID로
 | 03 | [RAID — Reliability and Performance in Storage Systems](./03-raid.md) *(계획서: 파일 시스템 I)* | 완료 (RAID-0/1/4/5/6 성능 분석, Rebuild, Lustre, VAST/DASE 예습) |
 | 04 | [NAND Flash SSD SoC Architecture](./04-nand-flash-ssd.md) *(계획서: 파일 시스템 II — Crash Consistency와 Journaling)* | 완료 (HDD→SSD 비교, eMMC/UFS, Interface vs Protocol(SATA/SAS/PCIe/NVMe), NAND cell 구조) |
 | 05 | [SSD 내부 구조 — NAND Program/Erase, Flash Controller, Channel/Way](./05-ssd-internal.md) *(계획서: 파일 시스템 III — 로그 기반 파일 시스템과 SSD 최적화)* | 완료 (버스·메모리 대역폭, CPU vs GPU와 GPUDirect Storage, Program/Erase 비대칭, Page/Block, Channel×Way 병렬성, SLC~QLC) |
-| 06 | 데이터베이스 I: 데이터 저장, 관리 및 인덱싱 | 예정 |
+| 06 | [NAND Flash Management — Flash Translation Layer (FTL)](./06-nand-flash-management.md) *(계획서: 데이터베이스 I — 데이터 저장, 관리 및 인덱싱)* | 완료 (RMW와 Write Amplification, COW·Mapping Table, Page 상태·TRIM, GC·Cost-Benefit·Over-provisioning, Wear Leveling, Bad Block·Read Disturb) |
 | 07 | 데이터베이스 II: 트랜잭션 및 동시성 제어 | 예정 |
 | 08 | 《중간고사》 | — |
 | 09 | 데이터베이스 III: 로깅 및 복구 시스템 | 예정 |
@@ -64,3 +64,11 @@ Architecture) 슬라이드를 2주차에 이어서 마치고, 3주차에 RAID로
 | 14 | LLM 서빙 시스템: KV Cache와 AI 메모리/스토리지 | 예정 |
 | 15 | Cloud AI Infrastructure 및 최신 AI 데이터센터 기술 | 예정 |
 | 16 | 《학기말고사》 | — |
+
+<br/>
+
+### 복습 · 시험 대비
+
+| 구분 | 문서 | 비고 |
+|------|------|------|
+| 시험 대비 | [중간고사 기본 학습 가이드](./midterm-study-guide.md) | 1~6주차 범위. 블록 0~6 약 3시간 40분. 영어 출제 대비 용어표·답안 문장 틀, 영어 연습 문제 + 접이식 모범 답안 |
