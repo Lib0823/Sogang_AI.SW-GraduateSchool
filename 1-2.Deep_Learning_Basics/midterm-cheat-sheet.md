@@ -1,155 +1,132 @@
 # 딥러닝 기초 중간시험 — A4 정리지 (손글씨용 2면)
 
-> **용도**: 시험장에 가져갈 A4 정리지 2면에 **손으로 옮겨 쓸 내용**입니다.
-> **범위**: 이번 학기에 배운 1~7주차만. 기출에서 반복된 문제의 **답안 뼈대 + 공식 + 숫자**와 6~7주차 핵심을 넣었습니다. 설명은 [midterm-study-guide.md](./midterm-study-guide.md)에 있습니다.
+> **용도**: 시험장에 가져갈 A4 2면에 **손으로 옮겨 쓸 내용**입니다.
+> **구성**: 기출에 반복해서 나온 문제를 **"문제 → 답"** 형태로 쉽게 풀어 썼습니다. 시험지에서 같은 문제를 보면 해당 번호를 찾아 그대로 풀어 쓰면 됩니다.
+> - **1면** = 서술형 단골 문제 (거의 매년 나옴)
+> - **2면** = 계산 문제 + 6~7주차 (SSL은 같은 가을학기 2025.10에 25점 출제)
 >
-> **쓰는 요령**
-> - 한 면에 약 55줄입니다. 작은 글씨로 **좌우 2단**으로 나눠 쓰면 들어갑니다.
-> - ★ = 반드시 / ☆ = 공간이 남으면. 모자라면 ☆ 줄부터 빼세요.
-> - 화살표(→)와 약어를 그대로 쓰세요. 문장으로 풀어 쓰면 다 안 들어갑니다.
-> - **옮겨 쓰는 과정 자체가 마지막 복습입니다.** 직접 쓰세요.
+> **쓰는 요령**: 한 면에 약 40줄입니다. 좌우 2단으로 나눠 쓰면 넉넉합니다. `( )`의 출제 연도는 안 써도 됩니다.
 
 <br/>
 
 ---
 
-## 1면 — 공식 · 계산 · 6~7주차
+## 1면 — 서술형 단골 문제
 
-### ① Loss ★
-```
-SVM   Li = Σ(j≠yi) max(0, sj − syi + 1)     min 0 / max ∞ / W작음 → C−1 (10cls=9)
-Soft  Li = −ln( e^syi / Σ e^sj )             min 0 / max ∞ / W작음 → ln C (10cls=2.3)
-      유도: s≈0 → e⁰/Σe⁰ = 1/C → −log(1/C) = log C
-CE    H(p,q) = −Σ p log q, p=one-hot → 정답 항만  <0,1,0,0>,<.2,.5,.1,.2> → −ln0.5 = 0.693
-예제  SVM cat/car/frog 2.9 / 0 / 12.9 → 평균 5.27
-      Soft cat: e^3.2=24.5 e^5.1=164 e^-1.7=0.18 → 24.5/188.7=0.13 → −ln0.13 = 2.04
-min0 <0,0,0,500> / max∞ <500,500,500,0> (정답 4번)
-SVM: margin 넘으면 만족(변화X) / Soft: 확률 1까지 계속 불만족 / e^x: 미분 쉬움, 차이 극대화
-```
+### A. 용어 7종 (매년 세트로 나옴)
 
-### ② L(W) = (1/N)ΣLi + λR(W) ★
-```
-(1) data loss: 정답 score↑ → W를 학습데이터에 fit
-(2) reg: W 작고 고르게(simple) → 학습데이터에 종속X → 일반화 (Occam) / L=0인 W 유일X (2W)
-λ 작음: train↓ val↑ (overfit) | 큼: train↑ val↓ | 너무 큼: 둘 다↑ (underfit)
-L2 Σw² → 작은 값 고르게 [.25×4] > [1,0,0,0] (R 0.25 vs 1) | L1 Σ|w| → sparse
-L(W)는 W로 결정 (데이터 고정) | loss space = weight수 + 1 (CIFAR linear 10×3072+1)
-SGD: random W → 1개/batch → loss → backprop → W −= η∂L/∂W 반복
-   최소 보장X: non-convex → local min/saddle, gradient 근사(noisy) → sub-optimum
-```
+**A1. 일반 프로그램 vs 기계학습**
+- 일반 프로그램: 사람이 규칙(rule)을 직접 작성 → 입력 + 프로그램 = 출력. 규칙이 쉽게 깨지고 확장이 안 됨
+- 기계학습: 입력 + 정답을 주면 **기계가 프로그램(W)을 자동으로 만듦** (데이터 기반)
 
-### ③ 숫자 ★
-```
-32×32×3 = 3072 | 640×480×3 = 921,600 | 가능한 이미지 256^3072 = 2^24576
-K-NN 결과: 학습데이터 전부 50000×32×32×3 + label | Train O(1) Predict O(N)
-Linear 결과: W 10×3072 + b 10 (= 30,730) ← 데이터 수 무관
-1 epoch update: Batch 1 / Mini N÷B / SGD N   (5000, B=50 → 1 / 100 / 5000)
-3-layer FC 3072→6→6→2: 3072×6+6×6+6×2 = 18,480 → loss 공간 18,481
-Rotation: 입력 921,600 / 출력 4 | Inpaint 10×10: 출력 10×10×3 = 300, loss MSE
-```
+**A2. Association (슈퍼마켓 예)**
+- 정답 없이, **함께 사는 상품 규칙**을 찾음. 예: 빵을 사면 우유도 삼 → 진열·묶음 할인·추천
 
-### ④ Backprop · Activation ★
-```
-down = up × local | add 복사 | mul 상대값 곱 | max 큰 쪽만 | branch 합
-e^x→e^x  ax→a  1/x→−1/x²  c+x→1   σ' = σ(1−σ) ≤ 0.25
-2023 그래프 (가) −1/1.37² = −0.53 (나) 0.20 [=.73×.27] (다) ∂w0=x0×.2=−0.20 (라) ∂x0=w0×.2=0.40
-   (다) → w0 update / (라) → 아래 layer로 전달
-sigmoid (가)=0.5 → (다) max 0.125 (x=0), min ≈0 (x→±∞) | 0.25¹⁰ ≈ 10⁻⁶
-ReLU max(0,x), 미분 1(x>0)/0(x<0) | tanh: zero-centered, 포화O | Leaky max(.01x,x)
-ELU 평균≈0 exp비용 | Maxout param 2배 | 실전: ReLU, sigmoid 쓰지 말 것
-Xavier randn/√fan_in (Var 1/n) | He /√(fan_in/2) (ReLU) | W=0 → 모든 뉴런 동일
-BN x̂=(x−μB)/√(σB²+ε), y=γx̂+β (뉴런별, batch 방향) | FC 뒤 act 앞 | 원인: internal covariate shift
-   효과: gradient↑ 큰LR 초기화 덜 민감 reg | test: running avg | γβ: 원하는 분포 학습
-```
+**A3. 분류 vs 회귀**
+- 분류: 정해진 class 중 하나 (덥다/춥다), 정확도로 평가
+- 회귀: 연속된 숫자 (기온 몇 도), RMSE로 평가
+- 공통: 둘 다 정답이 있는 지도학습
 
-### ⑤ Optimizer · Regularization (6주) ★
-```
-SGD 문제: zig-zag(poor cond.) / local min·saddle(고차원은 saddle 多) / noisy grad
-Momentum v=ρv+∇, W−=ηv (ρ .9) → 관성, 진동 상쇄 / overshoot
-Nesterov 먼저 가본 곳 grad → overshoot↓ | AdaGrad dx/√Σdx² 차원별 균등 → step→0
-RMSProp 지수평균(decay .9) | Adam = Mom + RMS + bias corr (β1 .9 β2 .999 lr 1e-3)
-gap 줄이기: 여러 모델(ensemble, snapshot) / 한 모델(cyclic LR, Polyak, regularization)
-Reg 패턴: train noise 추가 / test marginalize
- Dropout 뉴런 0 (p .5) | BN batch 구성 random | Aug 변형 파라미터 random
- DropConnect weight 0 | Frac.MaxPool 영역 random | Stoch.Depth layer drop
-Dropout 이유: co-adaptation 방지 / 공유 param ensemble (2^4096) | test: ×p (E = ½(w1x+w2y))
-```
+**A4. 차원 축소를 하는 이유**
+- 차원의 저주 해결 (필요한 데이터가 지수적으로 늘어남), overfitting 방지, 계산량 감소, 시각화
+
+**A5. Vanishing Gradient** ← 가장 자주 나옴
+- 정의: 역전파 때 gradient가 아래층으로 갈수록 0에 가까워져서 **아래층이 학습되지 않음**
+- 원인: sigmoid 미분값이 **최대 0.25** → 층마다 곱해지면 0.25 × 0.25 × … → 0
+- 해결: **ReLU** (미분값 1이라 그대로 전달), Xavier/He 초기화, Batch Normalization
+
+**A6. Overfitting**
+- 문제: 학습 데이터는 잘 맞히는데 **새 데이터는 못 맞힘**
+- 원인: 파라미터 수에 비해 **학습 데이터가 적음**
+- 해결: 데이터 늘리기(augmentation), Regularization(L2, Dropout), Early stopping, Transfer learning
+
+**A7. Perceptron (그림 필수)**
+- 그림: `x1, x2 … xn → (× w1, w2 … wn) → Σ + b → f(활성화) → y`
+- 동작: 입력 × 가중치를 더하고 → 비선형 함수 f를 통과 → 출력. **좋은 w를 찾는 것 = 학습**
+
+### B. 학습 상황 판단
+
+**B1. Train 정확도 높고 Validation 낮음** → **Overfitting** → λ 키우기, Dropout, Early stopping
+**B2. Train과 Validation 차이 거의 없음** → **학습 부족(underfitting)** → λ 줄이기, 더 오래 학습, learning rate 조정
+**B3. 학습을 멈출 때** → Train은 계속 오르는데 **Validation이 더 안 오르거나 떨어질 때** (Early stopping)
+**B4. 학습할 때마다 W가 다른 이유** → 초기값·데이터 순서가 random이고 hyperparameter도 달라서 **서로 다른 골짜기(local minimum)에 도착**
+**B5. 최종 모델 고르기** → **Validation 성능이 가장 좋은 것**
+**B6. Test가 따로 필요한 이유** → Validation은 모델 고르는 데 이미 써서 점수가 부풀려짐. **한 번도 안 쓴 Test**로 재야 진짜 성능
+**B7. λ의 효과** → λ 작게: train 오차↓ val 오차↑ (overfit) / λ 크게: train 오차↑ val 오차↓ / 너무 크면 둘 다↑
+
+### C. 차원의 저주 · Transfer Learning
+
+**C1. 차원의 저주** (주어진 4단어 꼭 넣기)
+- **고차원**이면 필요한 **학습 데이터 양**이 지수적으로 증가 → 데이터가 모자라 **overfitting** → **분류 정확도** 하락
+
+**C2. 고차원 → 저차원으로 줄여도 정보가 유지되는 이유**
+- 실제 데이터는 고차원 공간에 고르게 퍼져 있지 않음. 이웃 픽셀끼리 값이 비슷해서(상관관계·중복) **핵심 특징은 적은 차원으로 표현 가능**
+
+**C3. t-SNE 2D 그림** → 2차원으로 줄여도 **비슷한 이미지끼리 모여 있음** → 2D 좌표만으로도 분류 가능
+
+**C4. Transfer Learning (ImageNet fine-tuning)이 잘 되는 이유**
+- ImageNet(1000 class)으로 학습된 모델은 이미 **이미지 특징(선·색·질감)을 뽑는 법**을 배움
+- 이 특징은 다른 이미지에도 통함 → **윗부분만 적은 데이터로 학습**하면 됨 → overfitting 없이 높은 성능
 
 <br/>
 
 ---
 
-## 2면 — 서술형 답안 뼈대 (정의 → 원인 → 해결)
+## 2면 — 계산 문제 + 6~7주차
 
-### ⑥ 용어 7종 ★
-```
-[Program vs ML] 사람이 rule 작성: input+program→output (brittle, not scalable)
-   ML: input+output(정답)→program(W) 자동 생성, data-driven, train/predict
-[Association] label X, 장바구니 함께 사는 상품 {빵}→{우유} → 진열·묶음·추천
-[Cls vs Reg] 이산 class vs 연속값 | 덥다/춥다 vs 기온 | 정확도 vs RMSE | 공통 supervised
-[차원축소 이유] 차원의 저주(k^d) / overfit 방지 / 계산·저장↓ / 노이즈 제거 / 시각화
-[Vanishing] 정의: 역전파 시 gradient가 아래층으로 갈수록 → 0, 아래층 학습X
-   원인: sigmoid 미분 ≤0.25 매층 곱(0.25ⁿ), 포화 ≈0 | 해결: ReLU(미분1) / Xavier·He / BN
-[Overfitting] 문제: train↑ test(새 데이터)↓ → 일반화 실패
-   원인: param 수 대비 데이터 적음, 고차원, 과학습
-   해결: 데이터↑·aug / L2·dropout·BN / early stop / transfer / 차원축소
-[Perceptron] 그림 x1..xn —w→ Σwx+b → f → y   y = f(Σwᵢxᵢ + b)
-   가중합 → 비선형 act → 출력 / w가 출력 결정 → w 찾기 = 학습 / f 없으면 W2W1x = W'x
-```
+### D. Loss 계산
 
-### ⑦ 학습 실전 ★
-```
-[gap 큼] overfit → (데이터·모델 수정X) λ↑ dropout early-stop BN aug
-[gap 없음] underfit(둘 다 낮음) → λ↓ dropout↓ epoch↑ LR 조정 Adam
-[멈출 때] train acc↑인데 val acc 정체/↓ (val loss↑) → early stop, val 최고 epoch
-[W 매번 다름] hyperparam → loss space 경로 다름 + random init·batch순서·dropout → 다른 local min
-[최종 선택] val 최고 | [test 필요] val은 선택에 사용 → 과대평가 / test 미사용 → 진짜 일반화, 1회
-[babysit] 초기 loss 2.3 확인 / 20개로 overfit (acc 1.0) / update÷weight ≈ 1e-3
-[탐색] coarse→fine, log space, random > grid (중요 param 값 9개 vs 3개)
-```
+**D1. 공식**
+- SVM: `Li = Σ max(0, 오답점수 − 정답점수 + 1)` (정답 class는 빼고 더함)
+- Softmax: `Li = −ln(정답 확률)`, 정답 확률 = `e^정답점수 / Σ e^점수`
 
-### ⑧ 차원 · Transfer · K-NN/Linear ★
-```
-[차원의 저주] 고차원 → 필요 데이터 양 지수↑(k^d) → 한정 데이터 sparse, 거리 차이↓
-   → overfitting → 분류 정확도↓   (4단어 다 쓰기!)
-[저차원 유지 이유] 실제 데이터는 고차원에 고르게X, 저차원 구조에 모임
-   이웃 픽셀 강한 상관관계·중복성, 결정 요인(물체·자세·조명) 소수 → latent vector
-[FE 없이 FC 직접] param↑ 데이터 같음 → 차원의 저주 → overfit → test↓ / 픽셀 거리 무의미
-[t-SNE 2D] 4096-D → 2-D, 비슷한 이미지끼리 모임 → 이웃 관계 유지 → 2D로도 분류 가능
-[Transfer] ImageNet 1000cls → visual feature 학습됨 / 아래층 edge·색·질감 = generic
-   → 위층(FC)만 적은 데이터로 학습 → param 적음 → overfit X, 시간↓
-   유사·적음: linear만 | 유사·많음: 몇 층 | 다름·많음: 더 많은 층 | fine-tune LR 1/10
-[Linear 의미] score = x의 1차 함수 → 초평면 경계 → XOR·도넛·여러 덩어리 X, template 1개
-   row = template (같은 class와 곱하면 큼) / 말 머리 2개 = 좌우 말 모두 높은 score
-[K-NN] k개 voting | 흰 영역 = 동점 | 안 쓰는 이유: test 느림 / 픽셀 거리 무의미 / 차원의 저주
-[발전] KNN(O(N)) → Linear(template) → MNN(비선형 act) → DNN(ReLU, BN)
-```
+**D2. 자주 나온 답**
+- 정답 <0,1,0,0>, 예측 <0.2,0.5,0.1,0.2> → −ln 0.5 = **0.693**
+- cat/car/frog 표의 SVM → 2.9, 0, 12.9 → 평균 **5.27**
+- cat 이미지 Softmax → 24.5 / 188.7 = 0.13 → −ln 0.13 = **2.04**
 
-### ⑨ ReLU 문제 · SSL (7주) ★
-```
-[ReLU 속도] ① not zero-centered: ∂L/∂wᵢ = ∂L/∂f·xᵢ, xᵢ>0 → 모든 w 부호 같음 → zig-zag
-   ② dead ReLU (x<0 grad 0) | 해결: Leaky·PReLU·ELU, BN, 입력 zero-center, LR↓
-[Xavier] 작으면 act→0 vanishing, 크면 포화 → /√fan_in → 층마다 분산 유지
-[SSL] label X + 정답 자동생성 pretext → feature extractor → 소량 label로 downstream
-   (가) 직접 회전, 회전각 = 정답 / (나) 사람이 붙인 소량 label | 평가 = downstream
-[Inpaint] 정답 = 원본 box 픽셀, MSE / 학습: representation(visual commonsense) → transfer
-[Contrastive] 원 = encoder가 만든 feature vector (A / P = 같은 이미지 변형 / N = 다른 이미지)
-   loss = max(0, (가) − (나) + α)  (가)↓(나)↑ | 학습 대상 = encoder
-   InfoNCE = −log[e^pos/(e^pos+Σe^neg)] = N-way softmax CE, N↑ 성능↑
-   P 만들기: crop·rotate·color jitter·gray·flip / N: 같은 batch 다른 이미지 (SimCLR, 큰 batch)
-[Repr vs Gen] Repr: 핵심 특징(기억 지폐) → downstream transfer / Gen: p(x)(정밀 지폐) → 생성
-[GPT/BERT] GPT Decoder 단방향 다음 단어 | BERT Encoder 양방향 Masked LM + NSP
-☆ Jigsaw 9! = 362,880 → 정한 permutation 중 분류 | Rotation: visual commonsense 가설
-```
+**D3. W가 아주 작을 때 (점수가 전부 0)**
+- SVM: **C − 1** (10 class면 9)
+- Softmax: **ln C** (10 class면 2.3). 유도: e⁰ / (C × e⁰) = 1/C → −ln(1/C) = ln C
 
-<br/>
+**D4. Loss 최소/최대 예** (정답이 4번) → 최소 0: <0, 0, 0, 500> / 최대 ∞: <500, 500, 500, 0>
 
----
+**D5. L(W) = (1) + λ(2)**
+- (1) 데이터 loss: W를 **학습 데이터에 맞춤**
+- (2) 정규화: W를 **작고 고르게** 유지 → 새 데이터에도 잘 맞게 (L2는 고르게, L1은 0이 많게)
 
-### 옮겨 쓴 뒤 확인 체크
+### E. 크기 · 횟수 계산
 
-- [ ] 1면: Loss 공식 + 초기 loss(C−1, ln C) + 2.04 / 5.27 / 0.693
-- [ ] 1면: 그래프 (가)~(라) = −0.53 / 0.20 / −0.20 / 0.40
-- [ ] 1면: Optimizer 계보 + Regularization randomness 표
-- [ ] 2면: 용어 7종 "정의 → 원인 → 해결" 키워드
-- [ ] 2면: 차원의 저주 4단어, Transfer, gap 2종, 멈출 때, SSL (가)(나), Contrastive loss
+**E1. 이미지 크기** → 32×32×3 = 3,072 / 640×480×3 = 921,600 / 가능한 이미지 수 = 256^3072
+**E2. K-NN 학습 결과** → 학습 데이터 전부 (50,000 × 32×32×3)
+**E3. Linear 학습 결과** → W (10 × 3,072) + b (10)
+**E4. 1 epoch당 update 횟수** (5,000개, batch 50) → SGD 5,000 / Mini-batch 100 / Batch 1
+**E5. 뉴런 수** → Rotation: 입력 921,600, 출력 4 / Inpainting 10×10 박스: 출력 10×10×3 = 300
+
+### F. Backprop 그래프 (2023 기출)
+
+- 규칙: **아래로 보낼 값 = 위에서 온 값 × 내 미분값**. 더하기는 그대로 전달, 곱하기는 상대편 값을 곱함
+- 답: (가) **−0.53** / (나) **0.20** / (다) **−0.20** / (라) **0.40**
+- (다)는 w를 고치는 데 사용, (라)는 아래층으로 전달
+- sigmoid: 미분 최대 0.25 (x = 0) / ReLU: max(0, x), 미분은 x > 0이면 1, 아니면 0
+
+### G. ReLU의 속도 문제
+
+- 출력이 **항상 0 이상** → 모든 w가 같이 커지거나 같이 작아짐 → 지그재그로 느리게 학습
+- 음수 입력이면 gradient 0 → 죽은 뉴런 (dead ReLU)
+- 해결: Leaky ReLU, ELU, Batch Normalization
+
+### H. Self-Supervised Learning (7주차, 반드시 나옴)
+
+**H1. SSL이란** → 정답 없는 데이터에서 **정답을 자동으로 만들어** 학습 → 좋은 특징 추출기를 얻음 → 적은 정답 데이터로 실제 문제 학습
+**H2. Rotation** → (가) 이미지를 직접 0/90/180/270도로 돌리고, **돌린 각도가 정답** / (나) **사람이 붙인 소량의 정답** 사용
+**H3. Inpainting** → 가린 부분의 **원본 픽셀이 정답**, 차이를 MSE로 계산 → 학습된 특징을 다른 문제에 재사용
+**H4. Contrastive** → 원 = 이미지를 encoder에 넣어 얻은 특징 벡터 / Positive = 같은 이미지 변형, Negative = 다른 이미지
+- Loss = **max(0, (가) − (나) + α)** → (가)는 줄이고 (나)는 키움
+**H5. 텍스트 pretext task** → GPT: 다음 단어 맞히기 / BERT: 빈칸 단어 맞히기
+
+### I. 6주차 한 줄씩 (공간 남으면)
+
+- Momentum: 관성으로 골짜기 탈출 / Adam: Momentum + RMSProp (기본 선택)
+- Dropout: 학습 때 뉴런을 무작위로 끔 → 특정 특징에 의존 안 함, test 때는 p를 곱함
+- Regularization 공통 패턴: 학습 때 무작위성 추가, test 때 평균
