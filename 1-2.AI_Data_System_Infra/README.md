@@ -45,7 +45,7 @@ AI 데이터 시스템·인프라를 다룹니다. 링크가 걸린 항목은 �
 Architecture) 슬라이드를 2주차에 이어서 마치고, 3주차에 RAID로 넘어갔습니다.
 반도체 기반 스토리지(계획서상 2주차)는 4~5주차에 걸쳐 다루었고, 6주차에는 SSD 펌웨어(FTL)를 다루었습니다.
 중간고사는 계획서(8주차)보다 앞당겨 7주차에 치렀고, 계획서상 3주차였던 파일 시스템은 8주차에
-시작했습니다(OSTEP Ch.40 *File System Implementation*).
+시작해 9주차까지 이어갔습니다(OSTEP Ch.40 *File System Implementation*).
 
 | 주차 | 주제 | 정리 |
 |------|------|------|
@@ -57,7 +57,7 @@ Architecture) 슬라이드를 2주차에 이어서 마치고, 3주차에 RAID로
 | 06 | [NAND Flash Management — Flash Translation Layer (FTL)](./06-nand-flash-management.md) *(계획서: 데이터베이스 I — 데이터 저장, 관리 및 인덱싱)* | 완료 (RMW와 Write Amplification, COW·Mapping Table, Page 상태·TRIM, GC·Cost-Benefit·Over-provisioning, Wear Leveling, Bad Block·Read Disturb) |
 | 07 | 《중간고사》 *(계획서: 데이터베이스 II — 트랜잭션 및 동시성 제어)* | — |
 | 08 | [File System Implementation](./08-file-system.md) *(계획서: 《중간고사》)* | 완료 (On-Disk 구조: Superblock·Bitmap·Inode Table, VSFS 예제, max file size·inode offset·최대 파일 수 계산, Multi-level Index, ext4 디렉터리 엔트리, Access Methods I/O 타임라인 예습, Page Cache) |
-| 09 | 데이터베이스 III: 로깅 및 복구 시스템 | 예정 |
+| 09 | [File System (2) — Superblock, inode, Indexed Allocation, Directory](./09-inode-directory.md) *(계획서: 데이터베이스 III — 로깅 및 복구 시스템)* | 완료 (inode 위치·sector 계산, direct/indirect 최대 파일 크기, 디렉터리 엔트리와 unlink·포렌식, Linear list vs HTree, ext4 rec_len, metadata-intensive 연산과 AI 학습·HPC 병목, Crash Consistency) |
 | 10 | 클라우드 스토리지 I: SAN 및 네트워크 스토리지 | 예정 |
 | 11 | 클라우드 스토리지 II: 분산·빅데이터 스토리지 | 예정 |
 | 12 | AI 데이터 시스템: VectorDB와 대규모 임베딩 검색 | 예정 |
