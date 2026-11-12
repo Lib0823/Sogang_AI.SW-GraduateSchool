@@ -48,7 +48,8 @@
 Sum/Product rule과 베이즈 정리(계획서상 4주차)를 1~3주차에 걸쳐 먼저 다루었고,
 3주차부터는 *Think Bayes 2*의 Bayes Table과 분포(PMF) 중심으로 진행했습니다.
 중간시험 이후 9주차부터는 Murphy의 *Probabilistic Machine Learning: An Introduction*
-(PML1) Chapter 2를 교재로 진행하고 있습니다.
+(PML1) Chapter 2를 교재로 진행했고, 11주차 확률변수 변환은 Pishro-Nik의
+*Introduction to Probability, Statistics and Random Processes* Ch.4–6을 참고했습니다.
 
 | 주차 | 주제 | 정리 |
 |------|------|------|
@@ -62,7 +63,7 @@ Sum/Product rule과 베이즈 정리(계획서상 4주차)를 1~3주차에 걸�
 | 08 | 《중간 시험》 | — |
 | 09 | [확률변수, 평균·분산, 베이즈 룰, Bernoulli/Binomial (PML1 2.1–2.4)](./09-random-variables-and-moments.md) *(계획서: Transformation of random variables)* | 완료 |
 | 10 | [Odds, Categorical/Softmax, Gaussian, 여러 분포, 확률변수 변환 (PML1 2.4.3–2.8)](./10-odds-softmax-gaussian-transform.md) *(계획서: Bayesian Statistics)* | 완료 |
-| 11 | MLE, MAP, NLL, KL Divergence, Entropy, Cross Entropy | 예정 |
+| 11 | [Transformation of Random Variables — 선형 변환, Convolution, Jacobian, 다변량 가우시안](./11-transformation-of-random-variables.md) *(계획서: MLE, MAP, NLL, KL Divergence, Entropy, Cross Entropy)* | 완료 |
 | 12 | Parameter estimation | 예정 |
 | 13 | Parameter estimation II | 예정 |
 | 14 | Random Process | 예정 |
